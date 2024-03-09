@@ -1,6 +1,9 @@
 plugins {
     alias(libs.plugins.androidApplication)
     alias(libs.plugins.jetbrainsKotlinAndroid)
+
+    kotlin("kapt")
+    id("com.google.dagger.hilt.android")
 }
 
 android {
@@ -63,4 +66,41 @@ dependencies {
     androidTestImplementation(libs.androidx.ui.test.junit4)
     debugImplementation(libs.androidx.ui.tooling)
     debugImplementation(libs.androidx.ui.test.manifest)
+
+    //ACCOMPANIST -> Pull to refresh
+    implementation(libs.accompanist.swiperefresh)
+
+    // Voyager Navigator
+    implementation(libs.voyager.navigator)
+    implementation(libs.voyager.hilt)
+    implementation(libs.voyager.bottom.sheet.navigator)
+
+
+    // MVI orbit
+    implementation(libs.orbit.viewmodel)
+    implementation(libs.orbit.compose)
+
+    //Hilt
+    implementation(libs.hilt.android)
+    kapt(libs.hilt.compiler)
+
+    // Better Logging In Android Using Timber
+    implementation(libs.timber)
+
+    // kotlinx.coroutines
+    implementation(libs.kotlinx.coroutines.core)
+    implementation(libs.kotlinx.coroutines.android)
+
+    // Gson
+    implementation(libs.gson)
+
+    // Chuck interceptor
+    debugImplementation(libs.library)
+    releaseImplementation(libs.library.no.op)
+
+    // REST API: Adding retrofit to the mainLayer
+    implementation(libs.retrofit)
+    implementation(libs.retrofit2.kotlin.coroutines.adapter)
+    implementation(libs.converter.gson)
+    implementation(libs.logging.interceptor)
 }
